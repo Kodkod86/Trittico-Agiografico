@@ -399,6 +399,65 @@ button.tl-row[aria-expanded="true"] .tl-t{color:var(--spuma)}
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
 
+/* moduli del trittico agiografico: carta, barra dei capitoli, interruttori, righe */
+.anta-w.long{font-size:clamp(24px,2.7vw,38px)}
+.mk.rubric{border-radius:50%;background:var(--terracotta)}
+.mk.ochre{border-radius:2px;background:var(--verderame)}
+.mk.azure{border-radius:50%;border:1.5px solid var(--spuma)}
+.mk.muted{border-radius:2px;border:1.5px solid var(--foschia)}
+.g-lat{margin-top:8px;font:italic 500 21px/1.4 var(--f-display);color:var(--spuma)}
+.g-note{margin-top:8px;font-size:15.5px;color:var(--foschia)}
+.opt.line .l-lat{display:block;font:italic 500 20px/1.4 var(--f-display);color:var(--spuma)}
+.opt.line .l-it{display:block;margin-top:2px;font:300 15px/1.45 var(--f-sans);color:var(--salsedine)}
+.tg-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin-top:14px}
+.tg{display:flex;flex-direction:column;gap:10px;padding:18px;background:var(--fondale);border:1px solid var(--scandaglio);transition:border-color .25s}
+.tg h5{font:italic 600 26px/1.05 var(--f-display);color:var(--spuma)}
+.tg-text{flex:1;color:var(--salsedine)}
+.tg.off{border-style:dashed}
+.tg.off .tg-text{color:var(--foschia);font-style:italic}
+.switch{display:inline-flex;align-items:center;gap:10px;background:none;border:0;padding:0;min-height:44px;font:400 13.5px/1 var(--f-sans);color:var(--salsedine);cursor:pointer;align-self:flex-start}
+.track{position:relative;width:40px;height:22px;border-radius:11px;background:var(--scandaglio);flex:none;transition:background .25s}
+.track::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--spuma);transition:transform .25s}
+.switch[aria-pressed="true"] .track{background:var(--terracotta)}
+.switch[aria-pressed="true"] .track::after{transform:translateX(18px)}
+.segbar{display:flex;gap:3px;margin-top:16px}
+.sg{display:flex;flex-direction:column;gap:2px;min-width:0;min-height:52px;padding:10px;text-align:left;border:0;cursor:pointer;color:var(--abisso);overflow:hidden}
+.sg-l{display:none}
+.sg-r{font:600 18px/1.1 var(--f-display);font-variant-numeric:tabular-nums}
+.sg.t-rubric{background:var(--brace)}
+.sg.t-azure{background:var(--verderame)}
+.sg.t-muted{background:var(--torbido)}
+.sg.t-ochre{background:var(--salsedine)}
+.sg[aria-pressed="true"]{box-shadow:inset 0 -5px 0 var(--abisso), 0 0 0 1px var(--spuma)}
+.map-wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;margin-top:16px}
+@media (min-width:1000px){.map-wrap{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)}}
+.map-svg{display:block;width:100%;height:auto;background:var(--fondale);border:1px solid var(--scandaglio)}
+.m-grat{stroke:var(--scandaglio);stroke-width:1;fill:none}
+.m-glab{fill:var(--foschia);font:400 10px var(--f-sans);letter-spacing:.08em}
+.m-sea{fill:var(--tacca);font:italic 500 16px var(--f-display)}
+.m-pt{fill:var(--abisso);stroke:var(--spuma);stroke-width:2}
+.m-pt.on{fill:var(--terracotta);stroke:var(--terracotta)}
+.m-lbl{fill:var(--spuma);font:400 13px var(--f-sans)}
+.m-halo{stroke:var(--fondale);stroke-width:4;stroke-linejoin:round;fill:var(--fondale);font:400 13px var(--f-sans)}
+.m-place{cursor:pointer;outline:none}
+.m-place:focus-visible .m-pt{stroke:var(--verderame);stroke-width:3}
+.m-rt{fill:none;stroke-width:2.2}
+.m-rt.corpo{stroke:var(--terracotta)}
+.m-rt.memoria{stroke:var(--verderame);stroke-dasharray:7 5}
+.m-rt.oggetto{stroke:var(--salsedine);stroke-dasharray:2 5;stroke-linecap:round}
+.m-rt.on{stroke-width:4}
+.m-hit{fill:none;stroke:transparent;stroke-width:16;cursor:pointer}
+.m-ar-corpo{fill:var(--terracotta)}
+.m-ar-memoria{fill:var(--verderame)}
+.m-ar-oggetto{fill:var(--salsedine)}
+.m-legend{display:flex;flex-direction:column;gap:8px;margin:0 0 14px;padding:0;list-style:none;font-size:14.5px;color:var(--salsedine)}
+.m-legend li{display:flex;align-items:center;gap:10px}
+.m-legend svg{flex:none}
+.map-list{display:flex;flex-wrap:wrap;gap:8px}
+.map-list .chip{min-height:40px;padding:0 14px;font-size:14px}
+.mk.ink2,.mk.ink{width:11px;height:11px;transform:rotate(45deg);background:var(--salsedine)}
+.mk.ok{border-radius:50%;background:var(--verderame)}
+
 </style>
 </head>
 <body>
@@ -2310,6 +2369,173 @@ R.reveal = function(b){
   return f;
 };
 
+R.choices = function(b){
+  var wrap = el('div', { class: 'stack' });
+  if (b.intro) wrap.append(R.prose({ k: b.k, h: b.h, html: b.intro }));
+  b.items.forEach(function(it){ wrap.append(R.choice(it)); });
+  return wrap;
+};
+
+R.lines = function(b){
+  var f = fig(b, 'Laboratorio');
+  var list = el('div', { class: 'opts' });
+  var fb = el('div', { class: 'fb', 'aria-live': 'polite' });
+  var solved = false;
+  var btns = b.lines.map(function(ln, i){
+    var bt = el('button', { class: 'opt line', type: 'button' }, el('span', { class: 'l-lat', html: ln.lat }), el('span', { class: 'l-it', html: ln.it }));
+    bt.addEventListener('click', function(){
+      if (solved) return;
+      if (i === b.answer){
+        solved = true; bt.classList.add('ok');
+        btns.forEach(function(x){ x.disabled = true; });
+        fb.replaceChildren(el('p', { class: 'verdict v-ok' }, 'Esatto'), H(b.after, 'explain'));
+        retry.hidden = false;
+      } else {
+        bt.classList.add('no');
+        fb.replaceChildren(el('p', { class: 'verdict v-no' }, 'Non ancora'), H(ln.hint || b.hint || '', 'why'));
+      }
+    });
+    list.append(bt);
+    return bt;
+  });
+  var retry = el('button', { class: 'mini', type: 'button', hidden: true }, 'Ricomincia');
+  retry.addEventListener('click', function(){ solved = false; btns.forEach(function(x){ x.disabled = false; x.classList.remove('ok', 'no'); }); fb.replaceChildren(); retry.hidden = true; });
+  f.append(list, fb, el('div', { class: 'rd-tools' }, retry));
+  return f;
+};
+
+R.toggle = function(b){
+  var f = fig(b, 'Laboratorio');
+  var list = el('div', { class: 'tg-list' });
+  var setters = [];
+  b.items.forEach(function(it){
+    var txt = el('p', { class: 'tg-text', html: it.on });
+    var lab = el('span', { class: 'sw-l' }, b.onLabel);
+    var sw = el('button', { class: 'switch', type: 'button', 'aria-pressed': 'true' }, el('span', { class: 'track', 'aria-hidden': 'true' }), lab);
+    var card = el('div', { class: 'tg' }, el('p', { class: 'eyebrow' }, it.k), el('h5', { html: it.name }), txt, sw);
+    function set(on){
+      sw.setAttribute('aria-pressed', on ? 'true' : 'false');
+      lab.textContent = on ? b.onLabel : b.offLabel;
+      txt.innerHTML = on ? it.on : it.off;
+      card.classList.toggle('off', !on);
+    }
+    sw.addEventListener('click', function(){ set(sw.getAttribute('aria-pressed') !== 'true'); });
+    setters.push(set);
+    list.append(card);
+  });
+  var allOn = true;
+  var all = el('button', { class: 'mini', type: 'button' }, b.allOff);
+  all.addEventListener('click', function(){ allOn = !allOn; setters.forEach(function(s){ s(allOn); }); all.textContent = allOn ? b.allOff : b.allOn; });
+  f.append(el('div', { class: 'rd-tools' }, all), list);
+  if (b.thesis) f.append(el('p', { class: 'tesi', html: b.thesis }));
+  return f;
+};
+
+R.segments = function(b){
+  var f = fig(b, 'Struttura');
+  var bar = el('div', { class: 'segbar', role: 'group', 'aria-label': b.aria || 'Sezioni del testo' });
+  var panel = el('div', { class: 'gloss', 'aria-live': 'polite' });
+  var btns = b.segs.map(function(sg){
+    var bt = el('button', { class: 'sg t-' + sg.tone, type: 'button', 'aria-pressed': 'false', style: 'flex:' + sg.w + ' 1 0', 'aria-label': sg.label + ', capitoli ' + sg.range }, el('span', { class: 'sg-l' }, sg.label), el('span', { class: 'sg-r' }, sg.range));
+    bt.addEventListener('click', function(){ pick(sg, bt); });
+    bar.append(bt);
+    return bt;
+  });
+  function pick(sg, bt){
+    btns.forEach(function(x){ x.setAttribute('aria-pressed', x === bt ? 'true' : 'false'); });
+    panel.replaceChildren(
+      el('p', { class: 'g-term' }, sg.label + ' · cap. ' + sg.range),
+      sg.lat ? el('p', { class: 'g-lat', html: '«' + sg.lat + '» <span class="ref">(' + sg.ref + ')</span>' }) : null,
+      sg.it ? el('p', { class: 'g-def', html: '«' + sg.it + '»' }) : null,
+      sg.note ? el('p', { class: 'g-note', html: sg.note }) : null
+    );
+  }
+  f.append(bar, panel);
+  pick(b.segs[0], btns[0]);
+  return f;
+};
+
+R.map = function(b){
+  var f = fig(b, 'Mappa');
+  var NS = 'http://www.w3.org/2000/svg';
+  function s(t, a){ var n = doc.createElementNS(NS, t); for (var q in a) n.setAttribute(q, a[q]); return n; }
+  var lon0 = b.box[0], lon1 = b.box[1], lat0 = b.box[2], lat1 = b.box[3];
+  var W = 480, cl = Math.cos((lat0 + lat1) / 2 * Math.PI / 180), k = W / ((lon1 - lon0) * cl), Hh = Math.round((lat1 - lat0) * k);
+  function X(lon){ return (lon - lon0) * cl * k; }
+  function Y(lat){ return (lat1 - lat) * k; }
+  var svg = s('svg', { viewBox: '0 0 ' + W + ' ' + Hh, class: 'map-svg', role: 'img', 'aria-label': b.aria || b.h });
+  var defs = s('defs', {});
+  ['corpo', 'memoria', 'oggetto'].forEach(function(kind){
+    var m = s('marker', { id: 'ar-' + kind + '-' + S.key, viewBox: '0 0 10 10', refX: '8', refY: '5', markerWidth: '7', markerHeight: '7', orient: 'auto-start-reverse' });
+    m.append(s('path', { d: 'M0,0 L10,5 L0,10 z', class: 'm-ar-' + kind }));
+    defs.append(m);
+  });
+  svg.append(defs);
+  for (var lo = Math.ceil(lon0 / 5) * 5; lo <= lon1; lo += 5){
+    svg.append(s('line', { x1: X(lo), y1: 0, x2: X(lo), y2: Hh, class: 'm-grat' }));
+    var tx = s('text', { x: X(lo) + 3, y: Hh - 5, class: 'm-glab' }); tx.textContent = lo + '° E'; svg.append(tx);
+  }
+  for (var la = Math.ceil(lat0 / 5) * 5; la <= lat1; la += 5){
+    svg.append(s('line', { x1: 0, y1: Y(la), x2: W, y2: Y(la), class: 'm-grat' }));
+    var ty = s('text', { x: 4, y: Y(la) - 4, class: 'm-glab' }); ty.textContent = la + '° N'; svg.append(ty);
+  }
+  (b.seas || []).forEach(function(se){ var t = s('text', { x: X(se.lon), y: Y(se.lat), class: 'm-sea', 'text-anchor': 'middle' }); t.textContent = se.t; svg.append(t); });
+  var P = {};
+  b.places.forEach(function(p){ P[p.id] = p; });
+  var panel = el('div', { class: 'gloss', 'aria-live': 'polite' }, el('p', { class: 'g-empty' }, 'Ogni luogo e ogni percorso, sulla carta o nell’elenco, si apre sulla sua scheda.'));
+  var marks = [];
+  function clear(){ marks.forEach(function(m){ m.classList.remove('on'); }); }
+  function show(title, html, nodes){ clear(); nodes.forEach(function(n){ n.classList.add('on'); }); panel.replaceChildren(el('p', { class: 'g-term', html: title }), H(html, 'g-def')); }
+  var routeLayer = s('g', {});
+  svg.append(routeLayer);
+  (b.routes || []).forEach(function(r){
+    var a = P[r.from], c = P[r.to];
+    var x1 = X(a.lon), y1 = Y(a.lat), x2 = X(c.lon), y2 = Y(c.lat);
+    var mx = (x1 + x2) / 2, my = (y1 + y2) / 2, dx = x2 - x1, dy = y2 - y1, len = Math.sqrt(dx * dx + dy * dy) || 1;
+    var bend = r.bend === undefined ? 0.18 : r.bend;
+    var cx = mx - dy / len * len * bend, cy = my + dx / len * len * bend;
+    var sh = 9 / len;
+    var sx = x1 + dx * sh, sy = y1 + dy * sh, ex = x2 - dx * sh, ey = y2 - dy * sh;
+    var d = 'M' + sx.toFixed(1) + ',' + sy.toFixed(1) + ' Q' + cx.toFixed(1) + ',' + cy.toFixed(1) + ' ' + ex.toFixed(1) + ',' + ey.toFixed(1);
+    var path = s('path', { d: d, class: 'm-rt ' + r.kind, 'marker-end': 'url(#ar-' + r.kind + '-' + S.key + ')' });
+    var hit = s('path', { d: d, class: 'm-hit' });
+    var ttl = s('title', {}); ttl.textContent = r.label; hit.append(ttl);
+    hit.addEventListener('click', function(){ show(r.label, r.d, [path]); });
+    routeLayer.append(path, hit);
+    marks.push(path);
+    r._path = path;
+  });
+  var listBtns = el('div', { class: 'map-list' });
+  b.places.forEach(function(p){
+    var g = s('g', { class: 'm-place', tabindex: '0', role: 'button', 'aria-label': p.name });
+    var cx = X(p.lon), cy = Y(p.lat);
+    var circ = s('circle', { cx: cx, cy: cy, r: 5.5, class: 'm-pt' });
+    var anchor = p.a || 'start';
+    var lx = cx + (anchor === 'start' ? 9 : anchor === 'end' ? -9 : 0), ly = cy + (p.dy || 4);
+    var halo = s('text', { x: lx, y: ly, 'text-anchor': anchor, class: 'm-halo', 'aria-hidden': 'true' }); halo.textContent = p.name;
+    var lbl = s('text', { x: lx, y: ly, 'text-anchor': anchor, class: 'm-lbl' }); lbl.textContent = p.name;
+    g.append(circ, halo, lbl);
+    function act(){ show(p.name + (p.when ? ' · ' + p.when : ''), p.d, [circ]); }
+    g.addEventListener('click', act);
+    g.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); act(); } });
+    svg.append(g);
+    marks.push(circ);
+    listBtns.append(el('button', { class: 'chip', type: 'button', onclick: act }, p.name));
+  });
+  (b.routes || []).forEach(function(r){
+    listBtns.append(el('button', { class: 'chip', type: 'button', onclick: function(){ show(r.label, r.d, [r._path]); } }, '→ ' + r.short));
+  });
+  function legendSwatch(kind){
+    var sv = s('svg', { width: '34', height: '10', viewBox: '0 0 34 10', 'aria-hidden': 'true' });
+    sv.append(s('line', { x1: 1, y1: 5, x2: 33, y2: 5, class: 'm-rt ' + kind }));
+    return sv;
+  }
+  var legend = el('ul', { class: 'm-legend' });
+  (b.legend || []).forEach(function(L){ legend.append(el('li', {}, legendSwatch(L.kind), el('span', {}, L.l))); });
+  f.append(el('div', { class: 'map-wrap' }, el('div', {}, svg), el('div', {}, legend, listBtns, panel)));
+  return f;
+};
+
 R.timeline = function(b){
   var f = fig(b, 'Cronologia');
   var tags = b.tags || {};
@@ -2603,9 +2829,11 @@ function watch(navs, rail){
 }
 function headFor(o, eyebrow){
   var head = el('section', { class: 'anta-head enter' });
-  if (o.filigree) head.append(el('p', { class: 'glyph', 'aria-hidden': 'true', lang: 'la' }, o.filigree));
+  if (o.filigree) head.append(el('p', { class: 'glyph', 'aria-hidden': 'true', lang: /[\u0370-\u03FF\u1F00-\u1FFF]/.test(o.filigree) ? 'grc' : 'la' }, o.filigree));
   head.append(el('p', { class: 'eyebrow' }, eyebrow));
-  head.append(el('h2', { class: 'anta-title' + (o.word ? '' : ' long'), lang: o.word ? 'la' : null }, o.word || o.title));
+  var ttl = el('h2', { class: 'anta-title' + (o.word ? '' : ' long'), lang: o.word ? 'la' : null }, o.word || o.title);
+  if (o.word && o.word.length > 8) ttl.style.fontSize = 'clamp(56px,' + (150 / o.word.length).toFixed(1) + 'vw,' + Math.round(1900 / o.word.length) + 'px)';
+  head.append(ttl);
   if (o.sub) head.append(el('p', { class: 'anta-sub' }, o.sub));
   if (o.senses){
     head.append(el('div', { class: 'senses' },
@@ -2763,7 +2991,7 @@ function renderAltar(){
   S.ante.forEach(function(a){
     var b = el('button', { class: 'anta', type: 'button', role: 'tab', 'data-id': a.id, 'aria-selected': 'false', 'aria-controls': 'main' },
       el('span', { class: 'anta-n' }, 'Lezione ' + a.num),
-      el('span', { class: 'anta-w', lang: 'la' }, a.word),
+      el('span', { class: 'anta-w' + (a.word.length > 9 ? ' long' : ''), lang: 'la' }, a.word),
       a.pending ? el('span', { class: 'soon' }, 'In rifacimento') : null,
       el('span', { class: 'anta-s s0' }, el('em', {}, S.senseLabels[0]), a.senses[0]),
       el('span', { class: 'anta-s s1' }, el('em', {}, S.senseLabels[1]), a.senses[1])
