@@ -457,6 +457,11 @@ button.tl-row[aria-expanded="true"] .tl-t{color:var(--spuma)}
 .map-list .chip{min-height:40px;padding:0 14px;font-size:14px}
 .mk.ink2,.mk.ink{width:11px;height:11px;transform:rotate(45deg);background:var(--salsedine)}
 .mk.ok{border-radius:50%;background:var(--verderame)}
+.cmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:10px;margin:14px 0}
+.cmp>div{padding:14px 16px;background:var(--fondale);border:1px solid var(--scandaglio);border-top:2px solid var(--terracotta);min-width:0}
+.cmp>div.b{border-top-color:var(--verderame)}
+.cmp b{display:block;margin-bottom:6px;font:400 11.5px/1.4 var(--f-sans);letter-spacing:.22em;text-transform:uppercase;color:var(--foschia)}
+.cmp span{display:block;font-size:15.5px;line-height:1.5;color:var(--salsedine)}
 
 </style>
 </head>
@@ -514,8 +519,8 @@ sintesi: [
  { k: `II · La Passio Perpetuae et Felicitatis`, h: `Cartagine, 203: un testo a tre voci`,
    body: `<p>Vengono arrestati alcuni catecumeni, fra cui Vibia Perpetua, di buona famiglia e di buona educazione, e la schiava Felicita. I giochi in cui moriranno sono quelli per il natale di Geta Cesare. Il testo alterna tre voci: il prologo del redattore (cap. 1-2), il diario di Perpetua (3-10), la visione di Saturo scritta di suo pugno (11-13), di nuovo il redattore (14-21).</p><p>Il redattore si presenta come esecutore delle ultime volontà della martire: «quasi mandatum sanctissimae Perpetuae, immo fideicommissum eius exequimur». Il fedecommesso è la disposizione con cui un testatore incarica un erede di trasmettere qualcosa a un terzo; e Perpetua aveva lasciato ad altri il racconto dei giochi: «si quis voluerit, scribat», lo scriva chi vorrà.</p>`,
    tesi: `Chi è l’autore di un testo che una martire ha cominciato e un redattore ha portato a termine?`,
-   deep: `<p>Il diario ha al centro un corpo. Perpetua ha circa ventidue anni e un figlio lattante; in carcere lo allatta, ottiene di tenerlo con sé, e il carcere diventa per lei un <i>praetorium</i>, una residenza di governatore. Quando il padre trattiene il bambino, il diario registra che il figlio non cerca più il seno e che a lei non viene l’infiammazione: un dettaglio clinico, letto come grazia. Felicita partorisce in carcere all’ottavo mese; nell’arena il redattore costruisce il chiasmo «a sanguine ad sanguinem, ab obstetrice ad retiarium», e la levatrice entra così nel più antico testo martiriale dell’Occidente latino.</p><p>Nel dialogo con il padre (3,1-2) Perpetua argomenta per analogia: come un vaso non può chiamarsi altro che ciò che è, così lei non può dirsi altro che cristiana. Si può evocare il <i>Cratilo</i> e la questione della giustezza dei nomi.</p>`,
-   thesis2: `<p>L’attribuzione a Tertulliano è antica e oggi minoritaria; la lettura montanista è respinta da Petr Kitzler (2015). Il traduttore greco rende <i>fervor</i> con φλεγμονή, termine tecnico della medicina greca, familiare a Galeno e a Sorano; e la «naturalis difficultas octavi mensis» di Felicita richiama la dottrina medica antica sul parto di otto mesi, ritenuto il più pericoloso. Il confronto con la trattatistica ginecologica antica (Sorano, <i>Gynaecia</i>, libro II) è una pista aperta.</p>` },
+   deep: `<p>Il diario ha al centro un corpo. Perpetua ha circa ventidue anni e un figlio lattante; in carcere lo allatta, ottiene di tenerlo con sé, e il carcere diventa per lei un <i>praetorium</i>, una residenza di governatore. Quando il padre trattiene il bambino, il diario registra che il figlio non cerca più il seno e che a lei non viene l’infiammazione: un dettaglio clinico, letto come grazia. Felicita partorisce in carcere all’ottavo mese; nell’arena il redattore costruisce il chiasmo «a sanguine ad sanguinem, ab obstetrice ad retiarium», e la levatrice entra così in uno dei più antichi testi martiriali dell’Occidente latino.</p><p>Nel dialogo con il padre (3,1-2) Perpetua argomenta per analogia: come un vaso non può chiamarsi altro che ciò che è, così lei non può dirsi altro che cristiana. Si può evocare il <i>Cratilo</i> e la questione della giustezza dei nomi.</p>`,
+   thesis2: `<p>L’attribuzione a Tertulliano è antica e oggi minoritaria; la lettura montanista è respinta da Petr Kitzler (2015). Il traduttore greco rende <i>fervor</i> con φλεγμονή, termine tecnico della medicina greca, familiare a Galeno e a Sorano; e la «naturalis difficultas octavi mensis» di Felicita richiama la dottrina medica antica sul parto di otto mesi, ritenuto il più pericoloso.</p>` },
  { k: `II · La Passio Perpetuae et Felicitatis`, h: `Un testo, più testimoni`,
    body: `<p>Della <i>Passio</i> possediamo una tradizione latina e una versione greca, conservata da un unico codice di Gerusalemme e pubblicata nel 1890 da J. Rendel Harris e S.K. Gifford, che la ritenevano originale. Robinson sostenne la priorità del latino, ed è l’opinione oggi prevalente. Fra gli indizi: nel latino il vecchio pastore saluta Perpetua con «tegnon», il greco τέκνον traslitterato, segno di una comunità bilingue; e nella visione di Saturo Perpetua «coepit graece cum illis loqui».</p>`,
    tesi: `Un testo è la somma dei suoi testimoni, e le varianti dicono chi lo ha letto e come.`,
@@ -580,14 +585,14 @@ letture: [
     p: { t: `patior`, d: `Il verbo della <i>passio</i>, al presente…` },
     f: { t: `passura sum`, d: `…e al futuro: la passione è già nella grammatica.` },
     a: { t: `alius in me`, d: `Un’identificazione mistica con Cristo, detta da una partoriente.` },
-    o: { t: `ab obstetrice ad retiarium`, d: `Il chiasmo del redattore. Il greco ha ἀπὸ μαίας πρὸς μονομαχίαν: la levatrice (μαῖα) entra nel testo martiriale più antico dell’Occidente latino.` }
+    o: { t: `ab obstetrice ad retiarium`, d: `Il chiasmo del redattore. Il greco ha ἀπὸ μαίας πρὸς μονομαχίαν: la levatrice (μαῖα) entra in uno dei più antichi testi martiriali dell’Occidente latino.` }
    },
    note: `<p>Le donne incinte non potevano essere esposte alla pena («non licet praegnantes poenae repraesentari», 15,2), norma che conserva anche il Digesto. Felicita teme di essere separata dai compagni; dopo la preghiera comune partorisce all’ottavo mese, e la bambina viene allevata come figlia da una sorella della comunità.</p>` }
 ],
 visLabel: `Cronologia e struttura`,
 visSub: `La forma della <i>Passio</i> e la storia dei testi, dal 180 alle edizioni moderne.`,
 visivi: [
- { type: `segments`, k: `Struttura`, h: `Un testo a tre voci`, prompt: `<p>Tocca ciascuna sezione della <i>Passio Perpetuae</i> per leggere la frase che ne rivela la voce.</p>`, aria: `Le voci della Passio Perpetuae`,
+ { type: `segments`, k: `Struttura`, h: `Un testo a tre voci`, prompt: `<p>Ciascuna sezione della <i>Passio Perpetuae</i> si apre sulla frase che ne rivela la voce.</p>`, aria: `Le voci della Passio Perpetuae`,
    segs: [
     { label: `Redattore`, range: `1-2`, w: 3, tone: `muted`, ref: `2,3`, lat: `haec ordinem totum martyrii sui iam hinc ipsa narravit, sicut conscriptum manu sua et suo sensu reliquit`, it: `da qui in poi è lei stessa a narrare tutto il suo martirio, così come lo lasciò scritto di sua mano e secondo il suo sentire`, note: `Il redattore introduce il diario e ne garantisce l’autografia.` },
     { label: `Perpetua`, range: `3-10`, w: 8, tone: `rubric`, ref: `10,15`, lat: `ipsius autem muneris actum, si quis voluerit, scribat`, it: `quanto allo svolgimento dei giochi, lo scriva chi vorrà`, note: `Il diario si interrompe alla vigilia dei giochi: la martire lascia ad altri il racconto della propria morte.` },
@@ -615,7 +620,7 @@ visivi: [
 ],
 lab: [
  { type: `lines`, h: `Dove finisce il verbale?`, ref: `Acta martyrum Scillitanorum 14-17`,
-   prompt: `<p>Leggi il finale degli <i>Acta</i>. Tocca la prima frase che non può appartenere al verbale d’udienza.</p>`,
+   prompt: `<p>Il finale degli <i>Acta</i>, frase per frase: qual è la prima che non può appartenere al verbale d’udienza?</p>`,
    lines: [
     { lat: `Saturninus proconsul decretum ex tabella recitavit: «… gladio animadverti placet.»`, it: `Il proconsole lesse la sentenza dalla tavoletta: «… si dispone che siano giustiziati con la spada.»`, hint: `<p>È la sentenza letta dalla tavoletta: un atto d’ufficio, dunque materia di verbale.</p>` },
     { lat: `Speratus dixit: «Deo gratias agimus.»`, it: `Sperato disse: «Rendiamo grazie a Dio.»` },
@@ -637,7 +642,7 @@ lab: [
     { t: `La passione di Agnese`, cat: `e`, why: `<p>Una passione «epica» dei martiri romani: documenta il culto più che i fatti.</p>` }
    ],
    explain: `<p>La griglia misura la distanza fra il testo e l’udienza. Man mano che la storicità decresce, il valore documentario si sposta: le passioni epiche documentano il culto e l’immaginario di chi le scrisse.</p>` },
- { type: `classify`, h: `Latino o greco: che cosa cambia?`, prompt: `<p>Tre luoghi della <i>Passio</i> nelle due tradizioni (Robinson 1891). Abbina a ciascuna coppia il tipo di differenza.</p>`,
+ { type: `classify`, h: `Latino o greco: che cosa cambia?`, prompt: `<p>Tre luoghi della <i>Passio</i> nelle due tradizioni (Robinson 1891). A ciascuna coppia il suo tipo di differenza.</p>`,
    cats: [ { id: `b`, label: `Indizio di bilinguismo` }, { id: `m`, label: `Dal possibile al lecito` }, { id: `t`, label: `Cambia il momento del dolore` } ],
    items: [
     { t: `<span class="la">«Bene venisti, tegnon»</span> (4,9) · «Καλῶς ἐλήλυθας, τέκνον»`, cat: `b`, why: `<p>Il latino conserva una parola greca traslitterata: una comunità bilingue.</p>` },
@@ -701,12 +706,11 @@ sintesi: [
    body: `<p>Il principe saraceno fa spogliare le chiese di Alessandria dei loro marmi. I custodi aprono il sepolcro e al posto di Marco mettono il corpo di santa Claudia. Bono e Rustico nascondono il corpo in una cesta, sotto cavoli e carne di maiale; i Saraceni guardano, gridano «Halkanzir, halkanzir!», maiale, maiale, e si scostano.</p><p>La giustificazione del furto è teologica: Marco aveva predicato ad Aquileia, i Veneti sono dunque i suoi primogeniti, e il santo sarà lieto di visitare i propri figli.</p>`,
    tesi: `Nei furti sacri il santo acconsente: si lascia rubare soltanto da chi lo merita.`,
    deep: `<p>La <i>Translatio Marci Evangelistae Venetias</i> (BHL 5283-5284), anonima, databile forse alla fine del X secolo ma di datazione discussa, è la più antica narrazione del furto. I mercanti erano giunti ad Alessandria quasi contro la loro volontà, perché un decreto imperiale vietava il commercio con l’Egitto; i custodi greci Staurazio e Teodoro vengono convinti con una promessa di onori; il corpo di Claudia sostituisce quello di Marco dentro il manto sigillato, così che i sigilli restino intatti; durante la navigazione Marco salva la nave apparendo in sogno al monaco Domenico; a Venezia il doge Giustiniano Partecipazio accoglie il corpo, e suo fratello Giovanni costruisce la basilica.</p>`,
-   thesis2: `<p>Patrick Geary, <i>Furta sacra</i> (1978; ed. riv. 1990), ha mostrato che questi furti sono raccontati secondo regole fisse. Edizione: E. Colombi, «Hagiographica» 17 (2010). Per i filosofi, la domanda è quella della proprietà di una persona morta, e della sua «volontà». Per chi ama la narrativa: <i>Baudolino</i> di Umberto Eco (2000), con le reliquie dei Magi portate da Milano a Colonia da Rainaldo di Dassel nel 1164, è un romanzo sulla produzione del sacro e sul suo commercio.</p>` },
+   thesis2: `<p>Patrick Geary, <i>Furta sacra</i> (1978; ed. riv. 1990), ha mostrato che questi furti sono raccontati secondo regole fisse. Edizione: E. Colombi, «Hagiographica» 17 (2010). Per i filosofi, la domanda è quella della proprietà di una persona morta, e della sua «volontà».</p>` },
  { k: `I · Il corpo e il luogo`, h: `Lo sguardo dei pagani`,
    body: `<p>Guardare il culto dei santi dall’esterno aiuta a capirne la novità. Nell’<i>Asclepius</i> ermetico, Ermete profetizza il giorno in cui l’Egitto, sede santissima di templi, «sarà pieno di sepolcri e di morti». Agostino, nell’VIII libro della <i>Città di Dio</i>, legge la profezia come il lamento dei demoni davanti alle <i>memoriae</i> dei martiri che prendono il posto dei templi; e precisa che ai martiri i cristiani non erigono templi, ma ne onorano le memorie come quelle di uomini morti (VIII,27). Eunapio di Sardi, retore pagano, racconta con disgusto la stessa trasformazione dopo la distruzione del Serapeo di Alessandria (391): ossa e teschi di condannati raccolti dai monaci, venerati, chiamati martiri.</p>`,
    tesi: `Per la prima volta i morti entrano in città e diventano centri di culto, rovesciando un tabù dell’antichità.`,
-   deep: `<p>Tre parole da fissare: <i>memoria</i>, la tomba-santuario del martire; <i>succedere</i>, subentrare, il sepolcro che prende il posto del tempio; e μάρτυς nell’uso sprezzante di Eunapio, che lo riferisce a criminali giustiziati venerati da schiavi.</p>`,
-   thesis2: `<p>Il nesso fra l’<i>Asclepius</i> ermetico e il culto dei martiri, attraverso Agostino (<i>De civitate Dei</i> VIII,26), porta la tradizione ermetica dentro la storia dell’agiografia: una pista poco battuta.</p>` },
+   deep: `<p>Tre parole da fissare: <i>memoria</i>, la tomba-santuario del martire; <i>succedere</i>, subentrare, il sepolcro che prende il posto del tempio; e μάρτυς nell’uso sprezzante di Eunapio, che lo riferisce a criminali giustiziati venerati da schiavi.</p>` },
  { k: `I · Il corpo e il luogo`, h: `Milano, 17 giugno 386: trovare, trasferire, acquistare`,
    body: `<p>Ambrogio scrive alla sorella Marcellina pochi giorni dopo i fatti (<i>Ep.</i> 77). Il popolo gli chiede di consacrare la nuova basilica; lui risponde che lo farà se troverà reliquie di martiri, fa scavare davanti ai cancelli della tomba di Nabore e Felice e trova due corpi, Gervasio e Protasio. Siamo nel pieno del conflitto con la corte ariana di Giustina e di Valentiniano II: l’<i>inventio</i> è anche un atto politico, e Milano, che non aveva martiri propri, ne acquista due.</p><p>Tre verbi da sottolineare: <i>invenire</i> (l’<i>inventio</i>, il ritrovamento), <i>transferre</i> (la <i>translatio</i>, il trasporto), <i>acquirere</i> (il santo come bene della comunità). E una frase che fonda una prassi: «Succedant victimae triumphales in locum ubi Christus est hostia», le reliquie sotto l’altare, dove si celebra il sacrificio di Cristo.</p>`,
    tesi: `Perché un vescovo ha bisogno di corpi per fondare una chiesa?`,
@@ -717,7 +721,7 @@ sintesi: [
    tesi: `Il santo è, prima di tutto, una data e un luogo; la storia viene dopo.`,
    deep: `<p><i>In Catacumbas</i> designava un luogo preciso della via Appia (oggi San Sebastiano), e solo più tardi è diventato nome comune. Il dato del 258 apre la questione di un trasferimento o di un culto congiunto degli apostoli in quel luogo: un enigma ancora discusso.</p>` },
  { k: `II · Un santo, molti testi`, h: `Il dossier di Martino`,
-   body: `<p>Un santo è un dossier, cioè l’insieme dei testi che lo riguardano. Sulpicio Severo, avvocato aquitano convertito all’ascesi, scrive la <i>Vita Martini</i> mentre il vescovo di Tours è ancora vivo (396-397), la completa con tre lettere sulla morte e la sepoltura e con i <i>Dialogi</i> (404). Seguono le versificazioni di Paolino di Périgueux (c. 470) e di Venanzio Fortunato (573-577) e i quattro libri di Gregorio di Tours sui miracoli presso la tomba.</p><p>Prima della <i>Vita Martini</i> la letteratura latina contava appena cinque vite di santi: Cipriano, Antonio (tradotto da Atanasio), Paolo, Malco, Ilarione. Sulpicio scrive quasi senza un genere alle spalle; i suoi successori avranno lui come modello.</p>`,
+   body: `<p>Un santo è un dossier, cioè l’insieme dei testi che lo riguardano. Sulpicio Severo, avvocato aquitano convertito all’ascesi, scrive la <i>Vita Martini</i> mentre il vescovo di Tours è ancora vivo (396-397), la completa con tre lettere sulla morte e la sepoltura e con i <i>Dialogi</i> (404). Seguono le versificazioni di Paolino di Périgueux (c. 470) e di Venanzio Fortunato (573-577) e i quattro libri di Gregorio di Tours sui miracoli presso la tomba.</p><p>Prima della <i>Vita Martini</i> la letteratura latina contava appena cinque vite di santi: Cipriano, Antonio (la traduzione latina della <i>Vita</i> di Atanasio), Paolo, Malco, Ilarione. Sulpicio scrive quasi senza un genere alle spalle; i suoi successori avranno lui come modello.</p>`,
    tesi: `Ogni riscrittura riceve, nella BHL, un numero suo: il repertorio è, a guardarlo bene, una teoria del testo.`,
    deep: `<p>Il gesto più famoso dell’agiografia occidentale è il mantello diviso alla porta di Amiens (<i>Vita Martini</i> 3). Danny Praet ha mostrato che Sulpicio costruisce la scena come rovesciamento della Passione: i soldati romani si dividono le vesti di Cristo, il soldato Martino divide la propria per vestire Cristo nel povero. Il mantello diventerà la reliquia più celebre dei re franchi, la <i>cappa</i> custodita dai cappellani nella cappella: un oggetto trasferito ha lasciato la sua traccia nel lessico di tutta Europa.</p>`,
    thesis2: `<p>Edizioni: J. Fontaine, SC 133-135 (1967-1969); Ph. Burton, Oxford 2017. La <i>Bibliotheca Hagiographica Latina</i> tratta la versificazione o l’abbreviazione come un’opera nuova: vale la pena di sfogliarla con questa domanda in mente.</p>` },
@@ -795,7 +799,7 @@ visLabel: `Mappa e schemi`,
 visSub: `Dove si spostano corpi, reliquie e memorie; come cambia il libro che accoglie i santi.`,
 visivi: [
  { type: `map`, h: `Corpi, oggetti e memorie in cammino`, aria: `Carta schematica dell’Europa e del Mediterraneo con i luoghi della lezione`,
-   prompt: `<p>Una carta schematica, con il solo reticolo di meridiani e paralleli: tocca i luoghi e i percorsi della lezione.</p>`,
+   prompt: `<p>Una carta schematica, con il solo reticolo di meridiani e paralleli: luoghi e percorsi della lezione si aprono ciascuno sulla sua scheda.</p>`,
    box: [-3, 33, 30, 51.5],
    seas: [ { t: `Mare Mediterraneo`, lat: 34.2, lon: 19 }, { t: `Adriatico`, lat: 43.2, lon: 15.6 } ],
    legend: [ { kind: `corpo`, l: `un corpo trasferito` }, { kind: `oggetto`, l: `una reliquia o un oggetto` }, { kind: `memoria`, l: `una memoria che viaggia senza il corpo` } ],
@@ -816,7 +820,7 @@ visivi: [
     { from: `costantinopoli`, to: `poitiers`, kind: `oggetto`, bend: 0.12, short: `Costantinopoli · Poitiers`, label: `Un frammento della Croce per Radegonda`, d: `<p>Lo racconta Baudonivia, non Fortunato: la regina raccoglitrice di reliquie è il ritratto della seconda vita.</p>` },
     { from: `cartagine`, to: `roma`, kind: `memoria`, bend: -0.25, short: `Cartagine · Roma`, label: `Perpetua e Felicita, «Africae»`, d: `<p>La memoria si sposta anche senza i corpi: le martiri africane compaiono nel calendario romano del Cronografo del 354.</p>` }
    ] },
- { type: `chain`, k: `Schema`, h: `Dal libellus al leggendario`, prompt: `<p>Quattro forme del libro agiografico: tocca ciascuna per la scheda.</p>`,
+ { type: `chain`, k: `Schema`, h: `Dal libellus al leggendario`, prompt: `<p>Quattro forme del libro agiografico, ciascuna con la sua scheda.</p>`,
    cols: [ { h: `Il santo nel libro`, steps: [
     { t: `libellus`, s: `un fascicolo per un solo santo`, d: `<p>Spesso prodotto e conservato presso il santuario del santo.</p>` },
     { t: `passionarium`, s: `vite e passioni <i>per circulum anni</i>`, d: `<p>Dall’VIII secolo, ordinate secondo il calendario delle feste, per la lettura in coro e in refettorio.</p>` },
@@ -843,7 +847,7 @@ lab: [
  { type: `choice`, h: `Due ritratti, una regina`, k: `Prova alla cieca`,
    prompt: `<p>Due ritratti di Radegonda di Turingia, fondatrice di Santa Croce a Poitiers. Uno è stato scritto da una donna.</p><div class="cmp"><div><b>Ritratto A</b><span>digiuni, veglie, preghiera incessante; mortificazioni del corpo tenute segrete; la regina che serve i malati e i lebbrosi; la santità come rinuncia al mondo</span></div><div class="b"><b>Ritratto B</b><span>la fondatrice che governa la comunità; la regina che si adopera per la pace fra i re; la raccoglitrice di reliquie; la richiesta all’imperatore di un frammento della Croce</span></div></div><p>Quale dei due è stato scritto da una donna?</p>`,
    options: [ { t: `Il ritratto A` }, { t: `Il ritratto B`, ok: true } ],
-   explain: `<p>Il ritratto A è quello del vescovo-poeta Venanzio Fortunato; il ritratto B è quello di Baudonivia, monaca di Santa Croce. Fortunato condensa il suo ideale in un distico: «Mens fecunda deo, Radegundis, vita sororum, / quae ut foveas animam membra domando cremas», mente feconda per Dio, vita delle sorelle, che per scaldare l’anima bruci le membra domandole.</p><p>Avvertenza: il genere di chi scrive non spiega tutto. La differenza dipende anche dalle circostanze del monastero dopo la morte della fondatrice, quando la comunità aveva bisogno di una patrona forte.</p>` },
+   explain: `<p>Il ritratto A è quello del vescovo-poeta Venanzio Fortunato; il ritratto B è quello di Baudonivia, monaca di Santa Croce. Fortunato condensa il suo ideale in un distico: «Mens fecunda deo, Radegundis, vita sororum, / quae ut foveas animam membra domando cremas», mente feconda per Dio, Radegonda, vita delle sorelle, che per scaldare l’anima bruci le membra domandole.</p><p>Avvertenza: il genere di chi scrive non spiega tutto. La differenza dipende anche dalle circostanze del monastero dopo la morte della fondatrice, quando la comunità aveva bisogno di una patrona forte.</p>` },
  { type: `choices`, k: `Laboratorio di codicologia`, h: `Dove è stato scritto questo codice?`,
    intro: `<p>Il santorale di un leggendario è un’impronta digitale: accanto ai santi universali, ogni chiesa celebra i propri. Gli elenchi qui sotto sono costruiti per l’esercizio e non riproducono codici reali.</p>`,
    items: [
@@ -854,7 +858,7 @@ lab: [
     { k: `Santorale III`, h: `Ambrosius · Gervasius et Protasius · Nabor et Felix · Victor · Simplicianus`, options: [ { t: `Treviri` }, { t: `Tours` }, { t: `Milano`, ok: true }, { t: `Venezia` } ],
       explain: `<p>Ambrogio, i due martiri trovati nel 386 e quelli presso la cui tomba furono trovati, il martire Vittore, il successore di Ambrogio Simpliciano.</p><p><b>Metodo.</b> Confrontare il santorale con i calendari noti, cercare le feste di dedicazione e di traslazione proprie di una chiesa, osservare le aggiunte di mani successive, che datano l’uso del codice.</p>` }
    ] },
- { type: `classify`, h: `Perché si riscrive un santo?`, prompt: `<p>Abbina ciascun caso al motivo che prevale. I tre motivi, nella realtà, si intrecciano spesso.</p>`,
+ { type: `classify`, h: `Perché si riscrive un santo?`, prompt: `<p>A ciascun caso il motivo che prevale. I tre motivi, nella realtà, si intrecciano spesso.</p>`,
    cats: [ { id: `s`, label: `Lo stile` }, { id: `c`, label: `Il culto` }, { id: `l`, label: `Il libro` } ],
    items: [
     { t: `Paolino di Périgueux mette in esametri la prosa di Sulpicio`, cat: `s` },
@@ -927,7 +931,7 @@ sintesi: [
    body: `<p>Iacopo procede come un editore che annota le varianti. Prima una versione sobria: Margherita chiede di vedere il nemico, appare un drago, lei si segna e il drago svanisce. Poi, introdotta da un «vel ut alibi legitur», la versione dell’inghiottimento: la croce squarcia il ventre del drago e la vergine ne esce illesa. Infine il giudizio: inghiottimento e squarcio sono ritenuti apocrifi e frivoli.</p><p>E tuttavia, morendo, Margherita prega per le donne in travaglio che la invocheranno. Il racconto giudicato frivolo diventa quello più vicino alle partorienti: letto durante il parto, copiato su rotoli e cinture da cingere sul ventre.</p>`,
    tesi: `La scena giudicata frivola è la stessa che fa di Margherita la patrona delle partorienti.`,
    deep: `<p>Altre redazioni, come la <i>Seinte Margarete</i> inglese dei primi del Duecento, raccontano l’inghiottimento con dovizia di particolari. Le pratiche legate al parto sono documentate in molti manoscritti tardomedievali. Nel 1969 la festa esce dal calendario romano generale: un’ultima <i>probatio</i>.</p>`,
-   thesis2: `<p>J. Dresvina, <i>A Maid with a Dragon. The Cult of St Margaret of Antioch in Medieval England</i> (2016). Una pista aperta: la leggenda come oggetto usato nel parto, accanto alla levatrice, e la presenza o il silenzio delle levatrici nelle fonti che descrivono queste pratiche.</p>` },
+   thesis2: `<p>J. Dresvina, <i>A Maid with a Dragon. The Cult of St Margaret of Antioch in Medieval England</i> (2016).</p>` },
  { k: `I · Il leggendario che giudica`, h: `Anche Silvestro sotto esame`,
    body: `<p>Nel capitolo sull’invenzione della Croce Iacopo mette a confronto due tradizioni: quella degli <i>Actus Silvestri</i>, secondo cui Costantino, lebbroso, fu guarito e battezzato da papa Silvestro a Roma, e quella storica, risalente a Eusebio e a Girolamo, che colloca il battesimo alla fine della vita dell’imperatore. La sua soluzione è un piccolo trattato di metodo: separa ciò che è certo (la conversione sotto Silvestro) da ciò che è dubbio (la data del battesimo), e ne deduce che la leggenda di Silvestro è dubbia su molti punti.</p>`,
    tesi: `Ciò che è certo, ciò che è dubbio: una gerarchia delle prove.`,
@@ -935,17 +939,15 @@ sintesi: [
  { k: `II · Il santo davanti al tribunale`, h: `Dal proconsole al cardinale`,
    body: `<p>La santità torna davanti a un tribunale, e il trittico chiude il proprio anello: dal proconsole Saturnino che interroga i cristiani di Scili alle commissioni che, dal XII secolo, interrogano testimoni sulla vita e sui miracoli dei candidati alla canonizzazione. Le tappe: la decretale <i>Audivimus</i> di Alessandro III, accolta nel <i>Liber Extra</i> (1234); le prime inchieste documentate, come quella su Galgano di Chiusdino (1185); i grandi processi del Duecento e del Trecento, per Francesco, Chiara d’Assisi, Chiara da Montefalco, Nicola da Tolentino.</p>`,
    tesi: `Il genere nato in tribunale torna in tribunale: si chiude l’anello aperto a Cartagine.`,
-   deep: `<p>André Vauchez ha fondato su questi atti la sua storia della santità tardomedievale: vi parlano i laici, le donne, i guariti, con un’immediatezza che le vite letterarie non hanno. Per i filosofi, il problema epistemologico di provare l’eccezionale attraverso testimoni.</p>`,
-   thesis2: `<p>Le deposizioni sui miracoli di parto, con levatrici, madri e vicine chiamate a testimoniare, sono un giacimento ancora poco sfruttato per la storia delle levatrici e del parto.</p>` },
+   deep: `<p>André Vauchez ha fondato su questi atti la sua storia della santità tardomedievale: vi parlano i laici, le donne, i guariti, con un’immediatezza che le vite letterarie non hanno. Per i filosofi, il problema epistemologico di provare l’eccezionale attraverso testimoni.</p>` },
  { k: `II · Il santo davanti al tribunale`, h: `Ildegarda, una probatio sospesa`,
    body: `<p>Gregorio IX avvia nel 1227 l’inchiesta su Ildegarda di Bingen; gli atti del 1233 raccolgono testimonianze sulla vita e sui miracoli, ma vengono rinviati per integrazioni e il processo resta incompiuto. Il culto prosegue a livello locale finché, nel 2012, Benedetto XVI lo estende alla Chiesa universale con una canonizzazione equipollente e la proclama dottore della Chiesa.</p><p>Ildegarda è insieme agiografa (scrive le vite di Disibodo e di Ruperto) e oggetto di una <i>Vita</i>, di Goffredo e Teodorico, che incorpora sue pagine autobiografiche.</p>`,
-   tesi: `La santa che racconta i santi attende otto secoli la propria probatio.`,
-   thesis2: `<p>Il caso parallelo più ricco è Helfta: il <i>Legatus divinae pietatis</i> e il <i>Liber specialis gratiae</i> sono agiografie composte mentre i soggetti sono vivi, sotto il loro sguardo. Lo vedremo nel trittico sulla mistica, nella lezione <i>Dictatio</i>.</p>` },
+   tesi: `La santa che racconta i santi attende otto secoli la propria probatio.` },
  { k: `III · Dal santo al documento`, h: `1440: la prova del falso`,
    body: `<p>Il <i>Constitutum Constantini</i>, falsificato probabilmente nell’VIII secolo, racconta che Costantino, guarito dalla lebbra e battezzato da papa Silvestro, avrebbe donato al pontefice Roma e le province occidentali. La sua base narrativa sono gli <i>Actus Silvestri</i>, con il loro drago. Lorenzo Valla, nel 1440, scrive un’orazione che intreccia retorica e filologia: nella prima parte dialoghi immaginari mostrano l’inverosimiglianza del dono; nella seconda l’analisi minuta della lingua del documento ne denuncia anacronismi, contraddizioni ed errori. Pochi anni prima Niccolò Cusano aveva già parlato di un <i>dictamen apocryphum</i>.</p>`,
    tesi: `La critica moderna dei documenti nasce attorno a una leggenda agiografica.`,
    deep: `<p>Con Valla nasce la prova del falso fondata sulla lingua: la tappa centrale della genealogia Petrarca, Valla, Poliziano che il corso costruisce nel suo ultimo modulo.</p>`,
-   thesis2: `<p>C. Ginzburg, <i>Lorenzo Valla sulla donazione di Costantino</i>, in <i>Rapporti di forza</i> (2000); per una classe di filosofi, le pagine di Umberto Eco sui falsi nei <i>Limiti dell’interpretazione</i> (1990). Edizione: W. Setz (1976).</p>` },
+   thesis2: `<p>C. Ginzburg, <i>Lorenzo Valla sulla donazione di Costantino</i>, in <i>Rapporti di forza</i> (2000). Edizione: W. Setz (1976).</p>` },
  { k: `III · Dal santo al documento`, h: `I santi in latino umanistico`,
    body: `<p>Alison Frazier ha mostrato l’ampiezza del fenomeno: nel secolo che precede la Riforma, umanisti laici e chierici della penisola compongono vite di santi in latino classicheggiante, spesso su commissione della Chiesa stessa. Bonino Mombrizio, intorno al 1477, stampa a Milano il <i>Sanctuarium</i>, una vasta raccolta che riproduce i testi dei codici con pochi interventi, e che proprio per questo è ancora oggi un testimone prezioso. Antonio degli Agli, vescovo di Fiesole e poi di Volterra, morto nel 1477, compone il <i>De vitis et gestis sanctorum</i>, un leggendario d’autore in latino umanistico.</p>`,
    tesi: `Riscrivere un santo in buona lingua è già un giudizio: sul latino del modello, sulle sue inverosimiglianze, sulla dignità del soggetto.` },
@@ -960,7 +962,7 @@ sintesi: [
    body: `<p>Hippolyte Delehaye, bollandista, pubblica nel 1905 <i>Les légendes hagiographiques</i>: un manuale per distinguere nelle vite il nucleo storico dalle aggiunte leggendarie, e insieme uno studio di come la leggenda nasce e viaggia. È il punto più alto del metodo bollandista, e il punto in cui il drago diventa scoria da separare. Nel 1936, a proposito di un altro testo, J.R.R. Tolkien tiene la conferenza <i>Beowulf: The Monsters and the Critics</i>: i critici avevano usato il poema come una cava di notizie storiche e trattato i mostri come un difetto; per Tolkien i mostri sono il centro del senso.</p><p>Nel secondo Novecento la critica agiografica riporta i draghi al centro: Michel de Certeau (1975), Peter Brown (1981), André Vauchez (1981), Felice Lifshitz (1994).</p>`,
    tesi: `Il drago torna documento: di un immaginario, di un culto, di una comunità.`,
    deep: `<p>Tolkien il drago di Margherita lo conosceva: nel saggio del 1929 su <i>Ancrene Wisse</i> e <i>Hali Meiðhad</i> aveva studiato la lingua comune all’<i>Ancrene Wisse</i> e ai testi del manoscritto Bodley 34, fra i quali c’è <i>Seinte Margarete</i>. Per i filosofi la formula più semplice è questa: si passa da una critica che chiede se un racconto sia vero a una critica che chiede che cosa un racconto faccia.</p>`,
-   thesis2: `<p>Certeau legge la vita di santo come un discorso che combina virtù e luoghi secondo una struttura ricorrente; Lifshitz (<i>Viator</i> 25, 1994) contesta la categoria stessa di «genere agiografico». Una pista per chi ama i dibattiti di metodo: la disputa fra Pierre Saintyves (<i>Les saints successeurs des dieux</i>, 1907) e Delehaye sui patronati dei santi.</p>` }
+   thesis2: `<p>Certeau legge la vita di santo come un discorso che combina virtù e luoghi secondo una struttura ricorrente; Lifshitz (<i>Viator</i> 25, 1994) contesta la categoria stessa di «genere agiografico».</p>` }
 ],
 letture: [
  { h: `Due giudizi sulla Legenda aurea`, ref: `J.L. Vives, De disciplinis (1531) · Iacopo da Varazze, Legenda aurea, De sancta Margareta`,
@@ -1058,13 +1060,13 @@ lab: [
     { t: `Jean Mabillon, <i>De re diplomatica</i> (1681)`, cat: `i` }
    ],
    explain: `<p>Da quel momento l’officina bollandista sceglie fra le versioni, preferisce le più antiche e le più verosimili, pubblica i testi come li danno i codici.</p>` },
- { type: `order`, h: `Dalla levigatura all’officina`, prompt: `<p>Metti in ordine cronologico le tappe.</p>`,
+ { type: `order`, h: `Dalla levigatura all’officina`, prompt: `<p>Le tappe, in ordine cronologico.</p>`,
    items: [ { t: `Lipomano`, d: `1551-60` }, { t: `Surio`, d: `1570-75` }, { t: `Rosweyde`, d: `1607` }, { t: `Bolland`, d: `1643` }, { t: `Papebroch`, d: `1675` }, { t: `Mabillon`, d: `1681` } ] },
  { type: `questions`, h: `Tre domande per la classe`,
    items: [
     { l: `Il dubbio`, q: `Iacopo dichiara frivolo il drago di Margherita e lo trascrive comunque: perché?`, s: `<p>Perché il racconto è amato, è legato a una pratica (il parto) ed è parte della tradizione che il compilatore registra: una scelta che i filologi riconosceranno.</p>` },
     { l: `La prova`, q: `Che cosa deve dimostrare un processo di canonizzazione: una vita, un miracolo, un culto?`, s: `<p>La santità di vita, i miracoli, la fama e il culto; per i filosofi, il problema di provare l’eccezionale attraverso testimoni.</p>` },
-    { l: `Il mostro`, q: `Che cosa perde un racconto, se gli togliamo il drago?`, s: `<p>La domanda di Tolkien rivolta all’agiografia. Provate l’esercizio nella predella.</p>` }
+    { l: `Il mostro`, q: `Che cosa perde un racconto, se gli togliamo il drago?`, s: `<p>La domanda di Tolkien rivolta all’agiografia. L’esercizio è nella predella.</p>` }
    ] }
 ],
 quiz: [
@@ -1110,7 +1112,7 @@ intro: `<p>Nella pala d’altare la predella è la fascia bassa che corre sotto 
 sections: [
  { nav: `Il drago`, h: `Il filo del drago`, sub: `Quattro draghi, e una domanda di Tolkien rivolta ai santi.`,
    blocks: [
-    { type: `toggle`, h: `Che cosa perde un racconto, se gli togliamo il drago?`, prompt: `<p>Spegni il drago in ciascun racconto e guarda che cosa resta.</p>`, onLabel: `Con il drago`, offLabel: `Senza il drago`, allOff: `Togli tutti i draghi`, allOn: `Rimetti i draghi`,
+    { type: `toggle`, h: `Che cosa perde un racconto, se gli togliamo il drago?`, prompt: `<p>Il drago si può spegnere racconto per racconto, per vedere che cosa resta.</p>`, onLabel: `Con il drago`, offLabel: `Senza il drago`, allOff: `Togli tutti i draghi`, allOn: `Rimetti i draghi`,
       items: [
        { k: `Perpetua · 203`, name: `Il sogno della scala`, on: `Il <i>draco cubans</i> sotto la scala, calpestato come primo gradino: la salita comincia schiacciando il nemico, e il gesto si compie nell’arena.`, off: `Perpetua perde il primo gradino della sua scala, e il redattore la sua profezia compiuta.` },
        { k: `Giorgio · VI secolo`, name: `La passione sospetta`, on: `Il drago gli viene attribuito più tardi, e la <i>Legenda aurea</i> lo diffonde in Occidente: il santo guerriero diventa il santo del drago.`, off: `Così lo leggeva il <i>Decretum Gelasianum</i>: una passione sospetta, e nessun drago.` },
